@@ -38,8 +38,6 @@ public class CaseStudy {
             }
             System.out.println("Tahun prestasi tidak valid. Coba lagi.");
         }
-
-        // Menyimpan data ke array
         daftarPrestasi[jumlahPrestasi][0] = nama;
         daftarPrestasi[jumlahPrestasi][1] = nim;
         daftarPrestasi[jumlahPrestasi][2] = jenisPrestasi;
@@ -63,8 +61,6 @@ public class CaseStudy {
             }
         }
     }
-    
-
     public static void findOutData(){
         System.out.print("Masukkan jenis prestasi yang ingin dianalisis : ");
         String search = sc.nextLine();
@@ -124,10 +120,8 @@ public class CaseStudy {
         }
     }
     public static void main(String[] args) {
-
-     while (true) {
-        tampilkanMenu();
-    }
-
+        while (true) {
+            tampilkanMenu();
+        }
     }
 }

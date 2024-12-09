@@ -48,6 +48,36 @@ public class CaseStudy {
 
         System.out.println("Data prestasi berhasil ditambahkan.");
     }
+    public static void findOutData(){
+        System.out.print("Masukkan jenis prestasi yang ingin dianalisis : ");
+        String search = sc.nextLine();
+        for (int a = 0; a < daftarPrestasi.length; a++){
+            for (int b = 0; b < daftarPrestasi[a].length; b++){
+                if (search.equals(daftarPrestasi[a][b])) {
+                    for (int c = 0; c < daftarPrestasi[a].length; c++){
+                        switch (c){
+                            case 0:
+                                System.out.print("Nama : " + daftarPrestasi[a][c] + " || ");
+                                break;
+                            case 1:
+                                System.out.print("NIM : " + daftarPrestasi[a][c] + " || ");
+                                break;
+                            case 2:
+                                System.out.print("Jenis : " + daftarPrestasi[a][c] + " || ");
+                                break;
+                            case 3:
+                                System.out.print("Tingkat : " + daftarPrestasi[a][c] + " || ");
+                                break;
+                            case 4:
+                                System.out.print("Tahun : " + daftarPrestasi[a][c] + " || ");
+                                break;
+                        }
+                    }
+                    System.out.println();
+                }
+            }
+        }
+    }
     public static void tampilkanMenu() {
         System.out.println("=== PENCAATAN PRESTASI MAHASISWA ===");
         System.out.println("1. Tambah Data Prestasi");
@@ -66,7 +96,7 @@ public class CaseStudy {
                 // tampilkanSemuaPrestasi();
                 break;
             case 3:
-                // analisisPrestasi();
+                findOutData();
                 break;
             case 4:
                 System.out.println("Keluar dari program. Terima kasih!");
@@ -77,8 +107,10 @@ public class CaseStudy {
         }
     }
     public static void main(String[] args) {
-        while (true) {
-            tampilkanMenu();
-        }
+
+     while (true) {
+        tampilkanMenu();
+    }
+
     }
 }

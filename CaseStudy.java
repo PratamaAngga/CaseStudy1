@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class CaseStudy {
     static Scanner sc = new Scanner(System.in);
     static String[][] daftarPrestasi = new String[100][5];
@@ -48,6 +49,9 @@ public class CaseStudy {
 
         System.out.println("Data prestasi berhasil ditambahkan.");
     }
+    public static void tampilkanSemuaPrestasi(){
+        System.out.println("=== DAFTAR SEMUA PRESTASI ===");
+    }
     public static void tampilkanMenu() {
         System.out.println("=== PENCAATAN PRESTASI MAHASISWA ===");
         System.out.println("1. Tambah Data Prestasi");
@@ -63,7 +67,7 @@ public class CaseStudy {
                 tambahDataPrestasi();
                 break;
             case 2:
-                // tampilkanSemuaPrestasi();
+                tampilkanSemuaPrestasi();
                 break;
             case 3:
                 // analisisPrestasi();

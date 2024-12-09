@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class CaseStudy {
     static Scanner sc = new Scanner(System.in);
     static String[][] daftarPrestasi = new String[100][5];

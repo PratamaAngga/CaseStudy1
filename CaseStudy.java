@@ -51,7 +51,19 @@ public class CaseStudy {
     }
     public static void tampilkanSemuaPrestasi(){
         System.out.println("=== DAFTAR SEMUA PRESTASI ===");
+        if (jumlahPrestasi == 0) {
+            System.out.println("Belum ada data prestasi.");
+        } else {
+            for (int i = 0; i < jumlahPrestasi; i++) {
+                System.out.println("Nama: " + daftarPrestasi[i][0] +
+                                   " | NIM: " + daftarPrestasi[i][1] +
+                                   " | Jenis: " + daftarPrestasi[i][2] +
+                                   " | Tingkat: " + daftarPrestasi[i][3] +
+                                   " | Tahun: " + daftarPrestasi[i][4]);
+            }
+        }
     }
+    
 
     public static void findOutData(){
         System.out.print("Masukkan jenis prestasi yang ingin dianalisis : ");

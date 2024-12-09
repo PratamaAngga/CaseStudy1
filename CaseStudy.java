@@ -1,8 +1,10 @@
 import java.util.Scanner;
 public class CaseStudy {
+    
     static Scanner sc = new Scanner(System.in);
     static String[][] daftarPrestasi = new String[100][5];
     static int jumlahPrestasi = 0;
+
     public static void tambahDataPrestasi() {
         if (jumlahPrestasi >= daftarPrestasi.length) {
             System.out.println("Achievement data capacity is full.");
@@ -62,11 +64,10 @@ public class CaseStudy {
             }
         }
     }
-    
 
     public static void findOutData(){
         System.out.println("\n=== ACHIVEMENT ANALYSIS ===");
-        System.out.print("Enter the type of achievement you want to analyze (1st / 2nd / 3rd place): ");
+        System.out.print("Enter the achievement you want to analyze (name / NIM / type / level / year): ");
         String search = sc.nextLine();
         boolean found = false;
         for (int a = 0; a < daftarPrestasi.length; a++){
@@ -100,11 +101,12 @@ public class CaseStudy {
             System.out.println("Invalid input, no matching data.");
         }
     }
+
     public static void tampilkanMenu() {
         System.out.println("\n=== STUDENT ACHIEVEMENT RECORD ===");
         System.out.println("1. Add Achievement Data");
         System.out.println("2. Show All Achievements");
-        System.out.println("3. Achievement Analysis by Type");
+        System.out.println("3. Achievement Analysis (by type / name / NIM / level / year)");
         System.out.println("4. Exit");
         System.out.print("Select the menu: ");
         int pilihan = sc.nextInt();

@@ -54,8 +54,8 @@ public class CaseStudy {
         if (jumlahPrestasi == 0) {
             System.out.println("There is no achievement data yet.");
         } else {
-            System.out.println("=== DAFTAR SEMUA PRESTASI ===");
-            String[] labels = {"Nama: ", "NIM: ", "Jenis: ", "Tingkat: ", "Tahun: "};
+            System.out.println("\n=== LIST OF ALL ACHIEVEMENTS ===");
+            String[] labels = {"Name : ", "NIM : ", "Type : ", "Level : ", "Year : "};
             for (int i = 0; i < jumlahPrestasi; i++) {
                 for (int j = 0; j < daftarPrestasi[i].length; j++) {
                     System.out.print(labels[j] + daftarPrestasi[i][j]);

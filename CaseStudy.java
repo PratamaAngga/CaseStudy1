@@ -1,45 +1,46 @@
 import java.util.Scanner;
 public class CaseStudy {
+    
     static Scanner sc = new Scanner(System.in);
     static String[][] daftarPrestasi = new String[100][5];
     static int jumlahPrestasi = 0;
+
     public static void tambahDataPrestasi() {
         if (jumlahPrestasi >= daftarPrestasi.length) {
-            System.out.println("Kapasitas data prestasi sudah penuh.");
+            System.out.println("Achievement data capacity is full.");
             return;
         }
 
-        System.out.print("Masukkan Nama Mahasiswa: ");
+        System.out.print("Enter Student Name: ");
         String nama = sc.nextLine();
-        System.out.print("Masukkan NIM Mahasiswa: ");
+        System.out.print("Enter the student's NIM: ");
         String nim = sc.nextLine();
-        System.out.print("Masukkan Jenis Prestasi (Juara 1/Juara 2/Juara 3): ");
+        System.out.print("Enter the type of achievement (1st / 2nd / 3rd place): ");
         String jenisPrestasi = sc.nextLine();
         String tingkatPrestasi;
 
         while (true) {
-            System.out.print("Masukkan Tingkat Prestasi (Lokal/Nasional/Internasional): ");
+            System.out.print("Enter Level of Achievement (Local / National / International):");
             tingkatPrestasi = sc.nextLine();
-            if (tingkatPrestasi.equalsIgnoreCase("Lokal") ||
-                tingkatPrestasi.equalsIgnoreCase("Nasional") ||
-                tingkatPrestasi.equalsIgnoreCase("Internasional")) {
+            if (tingkatPrestasi.equalsIgnoreCase("Local") ||
+                tingkatPrestasi.equalsIgnoreCase("National") ||
+                tingkatPrestasi.equalsIgnoreCase("International")) {
                 break;
             }
-            System.out.println("Tingkat prestasi tidak valid. Coba lagi.");
+            System.out.println("Invalid achievement level. Try again.");
         }
 
         int tahunPrestasi;
         while (true) {
-            System.out.print("Masukkan Tahun Prestasi (2010 - " + java.time.Year.now() + "): ");
+            System.out.print("Enter Years of Achievement (2010 - 2024): ");
             tahunPrestasi = sc.nextInt();
             sc.nextLine();
-            if (tahunPrestasi >= 2010 && tahunPrestasi <= java.time.Year.now().getValue()) {
+            if (tahunPrestasi >= 2010 && tahunPrestasi <= 2024) {
                 break;
             }
-            System.out.println("Tahun prestasi tidak valid. Coba lagi.");
+            System.out.println("Year of achievement is invalid. Try again.");
         }
 
-        // Menyimpan data ke array
         daftarPrestasi[jumlahPrestasi][0] = nama;
         daftarPrestasi[jumlahPrestasi][1] = nim;
         daftarPrestasi[jumlahPrestasi][2] = jenisPrestasi;
@@ -47,11 +48,11 @@ public class CaseStudy {
         daftarPrestasi[jumlahPrestasi][4] = String.valueOf(tahunPrestasi);
         jumlahPrestasi++;
 
-        System.out.println("Data prestasi berhasil ditambahkan.");
+        System.out.println("Achievement data added successfully.");
     }
     public static void tampilkanSemuaPrestasi(){
         if (jumlahPrestasi == 0) {
-            System.out.println("Belum ada data prestasi.");
+            System.out.println("There is no achievement data yet.");
         } else {
             System.out.println("=== DAFTAR SEMUA PRESTASI ===");
             String[] labels = {"Nama: ", "NIM: ", "Jenis: ", "Tingkat: ", "Tahun: "};
@@ -67,42 +68,49 @@ public class CaseStudy {
         }
     }
     public static void findOutData(){
-        System.out.print("Masukkan jenis prestasi yang ingin dianalisis : ");
+        System.out.println("\n=== ACHIVEMENT ANALYSIS ===");
+        System.out.print("Enter the achievement you want to analyze (name / NIM / type / level / year): ");
         String search = sc.nextLine();
+        boolean found = false;
         for (int a = 0; a < daftarPrestasi.length; a++){
             for (int b = 0; b < daftarPrestasi[a].length; b++){
-                if (search.equals(daftarPrestasi[a][b])) {
+                if (search.equalsIgnoreCase(daftarPrestasi[a][b])) {
+                    found = true;
                     for (int c = 0; c < daftarPrestasi[a].length; c++){
                         switch (c){
                             case 0:
-                                System.out.print("Nama : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("Name : " + daftarPrestasi[a][c] + " || ");
                                 break;
                             case 1:
                                 System.out.print("NIM : " + daftarPrestasi[a][c] + " || ");
                                 break;
                             case 2:
-                                System.out.print("Jenis : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("Type : " + daftarPrestasi[a][c] + " || ");
                                 break;
                             case 3:
-                                System.out.print("Tingkat : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("Level : " + daftarPrestasi[a][c] + " || ");
                                 break;
                             case 4:
-                                System.out.print("Tahun : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("Year : " + daftarPrestasi[a][c] + " || ");
                                 break;
                         }
                     }
                     System.out.println();
-                }
+                } 
             }
         }
+        if (found == false) {
+            System.out.println("Invalid input, no matching data.");
+        }
     }
+
     public static void tampilkanMenu() {
-        System.out.println("=== PENCAATAN PRESTASI MAHASISWA ===");
-        System.out.println("1. Tambah Data Prestasi");
-        System.out.println("2. Tampilkan Semua Prestasi");
-        System.out.println("3. Analisis Prestasi Berdasarkan Jenis");
-        System.out.println("4. Keluar");
-        System.out.print("Pilih menu: ");
+        System.out.println("\n=== STUDENT ACHIEVEMENT RECORD ===");
+        System.out.println("1. Add Achievement Data");
+        System.out.println("2. Show All Achievements");
+        System.out.println("3. Achievement Analysis (by type / name / NIM / level / year)");
+        System.out.println("4. Exit");
+        System.out.print("Select the menu: ");
         int pilihan = sc.nextInt();
         sc.nextLine();
 
@@ -117,11 +125,11 @@ public class CaseStudy {
                 findOutData();
                 break;
             case 4:
-                System.out.println("Keluar dari program. Terima kasih!");
+                System.out.println("Exit the program. Thank you!");
                 System.exit(0);
                 break;
             default:
-                System.out.println("Pilihan tidak valid. Coba lagi.");
+                System.out.println("Invalid selection. Try again.");
         }
     }
     public static void main(String[] args) {

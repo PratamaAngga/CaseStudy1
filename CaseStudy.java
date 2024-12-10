@@ -51,20 +51,22 @@ public class CaseStudy {
         System.out.println("Achievement data added successfully.");
     }
     public static void tampilkanSemuaPrestasi(){
-        System.out.println("\n=== LIST OF ALL ACHIEVEMENTS ===");
         if (jumlahPrestasi == 0) {
             System.out.println("There is no achievement data yet.");
         } else {
+            System.out.println("=== DAFTAR SEMUA PRESTASI ===");
+            String[] labels = {"Nama: ", "NIM: ", "Jenis: ", "Tingkat: ", "Tahun: "};
             for (int i = 0; i < jumlahPrestasi; i++) {
-                System.out.println("Name : " + daftarPrestasi[i][0] +
-                                   " | NIM : " + daftarPrestasi[i][1] +
-                                   " | Type : " + daftarPrestasi[i][2] +
-                                   " | Level : " + daftarPrestasi[i][3] +
-                                   " | Year : " + daftarPrestasi[i][4]);
+                for (int j = 0; j < daftarPrestasi[i].length; j++) {
+                    System.out.print(labels[j] + daftarPrestasi[i][j]);
+                    if (j < daftarPrestasi[i].length - 1) {
+                        System.out.print(" | ");
+                    }
+                }
+                System.out.println();
             }
         }
     }
-
     public static void findOutData(){
         System.out.println("\n=== ACHIVEMENT ANALYSIS ===");
         System.out.print("Enter the achievement you want to analyze (name / NIM / type / level / year): ");
@@ -117,7 +119,7 @@ public class CaseStudy {
                 tambahDataPrestasi();
                 break;
             case 2:
-                tampilkanSemuaPrestasi();
+            tampilkanSemuaPrestasi();
                 break;
             case 3:
                 findOutData();

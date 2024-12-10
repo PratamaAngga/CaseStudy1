@@ -51,11 +51,11 @@ public class CaseStudy {
         System.out.println("Achievement data added successfully.");
     }
     public static void tampilkanSemuaPrestasi(){
+        String[] labels = {"Name : ", "NIM : ", "Type : ", "Level : ", "Year : "};
         if (jumlahPrestasi == 0) {
             System.out.println("There is no achievement data yet.");
         } else {
             System.out.println("\n=== LIST OF ALL ACHIEVEMENTS ===");
-            String[] labels = {"Name : ", "NIM : ", "Type : ", "Level : ", "Year : "};
             for (int i = 0; i < jumlahPrestasi; i++) {
                 for (int j = 0; j < daftarPrestasi[i].length; j++) {
                     System.out.print(labels[j] + daftarPrestasi[i][j]);
@@ -79,19 +79,19 @@ public class CaseStudy {
                     for (int c = 0; c < daftarPrestasi[a].length; c++){
                         switch (c){
                             case 0:
-                                System.out.print("Name : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("Name : " + daftarPrestasi[a][c] + " | ");
                                 break;
                             case 1:
-                                System.out.print("NIM : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("NIM : " + daftarPrestasi[a][c] + " | ");
                                 break;
                             case 2:
-                                System.out.print("Type : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("Type : " + daftarPrestasi[a][c] + " | ");
                                 break;
                             case 3:
-                                System.out.print("Level : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("Level : " + daftarPrestasi[a][c] + " | ");
                                 break;
                             case 4:
-                                System.out.print("Year : " + daftarPrestasi[a][c] + " || ");
+                                System.out.print("Year : " + daftarPrestasi[a][c] + " | ");
                                 break;
                         }
                     }

@@ -50,21 +50,22 @@ public class CaseStudy {
         System.out.println("Data prestasi berhasil ditambahkan.");
     }
     public static void tampilkanSemuaPrestasi(){
-        System.out.println("=== DAFTAR SEMUA PRESTASI ===");
         if (jumlahPrestasi == 0) {
             System.out.println("Belum ada data prestasi.");
         } else {
+            System.out.println("=== DAFTAR SEMUA PRESTASI ===");
+            String[] labels = {"Nama: ", "NIM: ", "Jenis: ", "Tingkat: ", "Tahun: "};
             for (int i = 0; i < jumlahPrestasi; i++) {
-                System.out.println("Nama: " + daftarPrestasi[i][0] +
-                                   " | NIM: " + daftarPrestasi[i][1] +
-                                   " | Jenis: " + daftarPrestasi[i][2] +
-                                   " | Tingkat: " + daftarPrestasi[i][3] +
-                                   " | Tahun: " + daftarPrestasi[i][4]);
+                for (int j = 0; j < daftarPrestasi[i].length; j++) {
+                    System.out.print(labels[j] + daftarPrestasi[i][j]);
+                    if (j < daftarPrestasi[i].length - 1) {
+                        System.out.print(" | ");
+                    }
+                }
+                System.out.println();
             }
         }
     }
-    
-
     public static void findOutData(){
         System.out.print("Masukkan jenis prestasi yang ingin dianalisis : ");
         String search = sc.nextLine();
@@ -110,7 +111,7 @@ public class CaseStudy {
                 tambahDataPrestasi();
                 break;
             case 2:
-                tampilkanSemuaPrestasi();
+            tampilkanSemuaPrestasi();
                 break;
             case 3:
                 findOutData();
